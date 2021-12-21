@@ -35,7 +35,7 @@ helm repo update
 helm install \
   cert-manager jetstack/cert-manager \
   --namespace cert-manager \
-  --version v1.6.1 \
+  --version v1.4.0 \
   --set installCRDs=true \
   --set startupapicheck.enabled=false
 ```
@@ -47,3 +47,15 @@ kubectl apply -f cluster-issuer.yaml
 kubectl apply -f httpbin-istio-gw.yaml
 kubectl apply -f httpbin-tls-cert.yaml
 ```
+
+### Validate
+
+```
+# check pods
+kubectl get pods -n cert-manager
+kubectl get pods -n demo
+# Both should have sidecars and be ready.
+kubectl get certificate -n istio-system
+```
+Visit url.
+
