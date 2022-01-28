@@ -19,16 +19,27 @@ spec:
           type: LoadBalancer
           # Change ip to ip of loadbalancer
           externalIPs:
-            - 180.10.10.1
-          loadBalancerIP: 180.10.10.1
+            - 10.10.10.1
+          loadBalancerIP: 10.10.10.1
+
+          # type: NodePort
+          # ports:
+          # - port: 80
+          #   targetPort: 8080
+          #   nodePort: 30080
+          #   name: http
+          # - port: 443
+          #   targetPort: 8443
+          #   nodePort: 30443
+          #   name: https
     pilot:
       enabled: true
   meshConfig:
     extensionProviders:
     - name: "oauth2-proxy"
       envoyExtAuthzHttp:
-        service: "oauth2-proxy.oauth2-proxy.svc.cluster.local"
-        port: "4180"
+        service: "oauth2-proxy.demo.svc.cluster.local"
+        port: "80"
         headersToDownstreamOnDeny:
           - content-type
           - set-cookie
