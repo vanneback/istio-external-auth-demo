@@ -64,7 +64,7 @@ spec:
           - "accept"
         includeAdditionalHeadersInCheck:
           authorization: '%REQ(x-auth-request-access-token)%'
-values:
+  values:
     gateways:
       istio-ingressgateway:
         # Enable gateway injection

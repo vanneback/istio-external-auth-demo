@@ -16,7 +16,7 @@ kubectl port-forward -n demo svc/httpbin 8000:8000
 There should be one pod deployed in demo with only 1/1 containers ready. When installing istio there will be a
 sidecar added here. Access the application on localhost:8000
 
-### Installing istio
+### Installing Istio
 
 In this guide I was using Azures AKS which has the option to use the LoadBalancer service type with a static Ip.
 If you also use Azure replace the ips in `istio-controlplane.yaml` with your public IP. If you are not using a
